@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="./css/inline.css" />
+
+		<title>My Web Project</title>
+		<!-- Load Lit from a CDN -->
+		<script type="module">
+			import {
+				html,
+				css,
+				LitElement,
+			} from 'https://cdn.jsdelivr.net/npm/lit@3.1.2/+esm';
+
+			class TextArea extends LitElement {
+				static properties = {
+					isOpen: { type: Boolean },
+					name: { type: String },
+					workspace: { type: String },
+					field: { type: String },
+				};
+
+				constructor() {
+					super();
+					this.isOpen = false;
+					this.name = '';
+					this.workspace = '';
+					this.field = '';
+				}
+
+				render() {
+					return html`
+						<div>
+							<textarea
+								id="textArea"
+								style="display: flex;"
+							></textarea>
+							<button @click="${this.handleOpenDialog}">
+								Open Dialog
+							</button>
+
+							${this.isOpen
+								? html`
+										<div>
+											<label>
+												Name:
+												<input
+													type="text"
+													.value="${this.name}"
+													@input="${(e) =>
+														this.handleChange(
+															e,
+															'name'
+														)}"
+												/>
+											</label>
+											<label>
+												Workspace:
+												<input
+													type="text"
+													.value="${this.workspace}"
+													@input="${(e) =>
+														this.handleChange(
+															e,
+															'workspace'
+														)}"
+												/>
+											</label>
+											<label>
+												Field:
+												<input
+													type="text"
+													.value="${this.field}"
+													@input="${(e) =>
+														this.handleChange(
+															e,
+															'field'
+														)}"
+												/>
+											</label>
+											<button
+												@click="${this.handleSubmit}"
+											>
+												Submit
+											</button>
+											<button
+												@click="${this
+													.handleCloseDialog}"
+											>
+												Close
+											</button>
+										</div>
+								  `
+								: ''}
+						</div>
+					`;
+				}
+
+				handleOpenDialog() {
+					this.isOpen = true;
+					this.requestUpdate();
+				}
+
+				handleCloseDialog() {
+					this.isOpen = false;
+					this.name = '';
+					this.workspace = '';
+					this.field = '';
+					this.requestUpdate();
+				}
+
+				handleChange(e, property) {
+					this[property] = e.target.value;
+				}
+
+				handleSubmit() {
+					const textArea = this.shadowRoot.getElementById('textArea');
+					const start = textArea.selectionStart;
+					const end = textArea.selectionEnd;
+					const newText =
+						textArea.value.substring(0, start) +
+						`$\{ref:${this.workspace}:${this.name}:${this.field}\}` +
+						textArea.value.substring(end);
+					textArea.value = newText;
+					this.isOpen = false;
+					this.name = '';
+					this.workspace = '';
+					this.field = '';
+					textArea.focus();
+					this.requestUpdate();
+				}
+			}
+			console.log('TextArea');
+			customElements.define('text-area', TextArea);
+		</script>
+	</head>
+	<body>
+		<text-area></text-area>
+
+		<script src="/js/PromptEditor.js"></script>
+	</body>
+</html>
