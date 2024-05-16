@@ -4,6 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="./css/inline.css" />
+		<link rel="stylesheet" type="text/css" href="./css/input.css" />
+		<link rel="stylesheet" type="text/css" href="./css/_variables.css" />
+		<link rel="stylesheet" type="text/css" href="./css/button.css" />
+		<link rel="stylesheet" type="text/css" href="./css/mgnl-css-copy.css" />
 
 		<title>My Web Project</title>
 		<!-- Load Lit from a CDN -->
@@ -30,23 +34,35 @@
 					this.field = '';
 				}
 
+				createRenderRoot() {
+					return this;
+				}
+
 				render() {
 					return html`
 						<div>
 							<textarea
+								class="mgnl-input mgnl-input--md v-textarea v-widget hide-caption v-textarea-hide-caption v-has-width"
+								placeholder="Enter your prompt here."
 								id="textArea"
 								style="display: flex;"
 							></textarea>
-							<button @click="${this.handleOpenDialog}">
-								Open Dialog
+							<button
+								class="mgnl-button mgnl-button--primary mgnl-button--md"
+								@click="${this.handleOpenDialog}"
+							>
+								<span class="mgnl-button__text">
+									Open Dialog
+								</span>
 							</button>
 
 							${this.isOpen
 								? html`
-										<div>
+										<div class="dialog-container">
 											<label>
 												Name:
 												<input
+													class="mgnl-input mgnl-input--md"
 													type="text"
 													.value="${this.name}"
 													@input="${(e) =>
@@ -59,6 +75,7 @@
 											<label>
 												Workspace:
 												<input
+													class="mgnl-input mgnl-input--md"
 													type="text"
 													.value="${this.workspace}"
 													@input="${(e) =>
@@ -71,6 +88,7 @@
 											<label>
 												Field:
 												<input
+													class="mgnl-input mgnl-input--md"
 													type="text"
 													.value="${this.field}"
 													@input="${(e) =>
@@ -81,11 +99,17 @@
 												/>
 											</label>
 											<button
+												class="mgnl-button mgnl-button--primary mgnl-button--md"
 												@click="${this.handleSubmit}"
+												?disabled="${!this.name ||
+												!this.workspace ||
+												!this.field}"
 											>
 												Submit
 											</button>
+
 											<button
+												class="mgnl-button mgnl-button--primary mgnl-button--md"
 												@click="${this
 													.handleCloseDialog}"
 											>
@@ -94,6 +118,7 @@
 										</div>
 								  `
 								: ''}
+							<h1>Test</h1>
 						</div>
 					`;
 				}
@@ -116,7 +141,8 @@
 				}
 
 				handleSubmit() {
-					const textArea = this.shadowRoot.getElementById('textArea');
+					console.log('submit');
+					const textArea = this.querySelector('#textArea');
 					const start = textArea.selectionStart;
 					const end = textArea.selectionEnd;
 					const newText =

@@ -1,0 +1,190 @@
+@charset "UTF-8";
+/*
+ * Either for optical alignment reasons, or target size requirements, the wrapper has a different size than an icon placed within.
+ *
+ * Examples
+ * - button.scss: 16×16 icon is placed in 14×18 wrapper for optical reasons, thus primitive-chip__icon(16px, 14px, 18px)
+ * - tag.scss: 16×16 icon is placed in 24×24 wrapper for target size reasons, thus primitive-chip__icon(16px, 24px)
+ */
+.mgnl-button {
+  transition: all var(--mgnl-animation-duration-50) var(--mgnl-animation-timing-50);
+  align-items: center;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  max-width: 100%;
+  padding: 0;
+  cursor: pointer;
+}
+.mgnl-button .mgnl-chip__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.mgnl-button .mgnl-button__icon {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: var(--mgnl-icon-wrapper-md-height);
+  justify-content: center;
+  width: var(--mgnl-icon-wrapper-md-width);
+}
+.mgnl-button .mgnl-button__icon svg {
+  display: block;
+  height: var(--mgnl-icon-md-size);
+  line-height: 1;
+  min-height: var(--mgnl-icon-md-size);
+  min-width: var(--mgnl-icon-md-size);
+  width: var(--mgnl-icon-md-size);
+}
+.mgnl-button--primary {
+  background-color: var(--mgnl-button-primary-color-background-default);
+  color: var(--mgnl-button-primary-color-label-default);
+  border: var(--mgnl-button-primary-border-default);
+  outline: var(--mgnl-focus-outline-none);
+}
+.mgnl-button--primary:active {
+  background-color: var(--mgnl-button-primary-color-background-active);
+  border: var(--mgnl-button-primary-border-active);
+  color: var(--mgnl-button-primary-color-label-active);
+}
+.mgnl-button--primary:active .mgnl-button__icon {
+  color: var(--mgnl-button-primary-color-icon-active);
+}
+.mgnl-button--primary:focus {
+  background-color: var(--mgnl-button-primary-color-background-focus);
+  border: var(--mgnl-button-primary-border-focus);
+  box-shadow: var(--mgnl-focus-outline-neutral-default);
+  color: var(--mgnl-button-primary-color-label-focus);
+}
+.mgnl-button--primary:focus .mgnl-button__icon {
+  color: var(--mgnl-button-primary-color-icon-focus);
+}
+.mgnl-button--primary:hover {
+  background-color: var(--mgnl-button-primary-color-background-hover);
+  border: var(--mgnl-button-primary-border-hover);
+  color: var(--mgnl-button-primary-color-label-hover);
+}
+.mgnl-button--primary:hover .mgnl-button__icon {
+  color: var(--mgnl-button-primary-color-icon-hover);
+}
+.mgnl-button--primary:disabled, .mgnl-button--primary.is-disabled {
+  background-color: var(--mgnl-button-primary-color-background-disabled);
+  border: var(--mgnl-button-primary-border-disabled);
+  color: var(--mgnl-button-primary-color-label-disabled);
+  cursor: not-allowed;
+}
+.mgnl-button--primary:disabled .mgnl-button__icon, .mgnl-button--primary.is-disabled .mgnl-button__icon {
+  color: var(--mgnl-button-primary-color-icon-disabled);
+}
+.mgnl-button--primary .mgnl-button__icon {
+  color: var(--mgnl-button-primary-color-icon-default);
+}
+.mgnl-button--secondary {
+  background-color: var(--mgnl-button-secondary-color-background-default);
+  color: var(--mgnl-button-secondary-color-label-default);
+  border: var(--mgnl-button-secondary-border-default);
+  outline: var(--mgnl-focus-outline-none);
+}
+.mgnl-button--secondary:active {
+  background-color: var(--mgnl-button-secondary-color-background-active);
+  border: var(--mgnl-button-secondary-border-active);
+  color: var(--mgnl-button-secondary-color-label-active);
+}
+.mgnl-button--secondary:active .mgnl-button__icon {
+  color: var(--mgnl-button-secondary-color-icon-active);
+}
+.mgnl-button--secondary:focus {
+  background-color: var(--mgnl-button-secondary-color-background-focus);
+  border: var(--mgnl-button-secondary-border-focus);
+  box-shadow: var(--mgnl-focus-outline-neutral-default);
+  color: var(--mgnl-button-secondary-color-label-focus);
+}
+.mgnl-button--secondary:focus .mgnl-button__icon {
+  color: var(--mgnl-button-secondary-color-icon-focus);
+}
+.mgnl-button--secondary:hover {
+  background-color: var(--mgnl-button-secondary-color-background-hover);
+  border: var(--mgnl-button-secondary-border-hover);
+  color: var(--mgnl-button-secondary-color-label-hover);
+}
+.mgnl-button--secondary:hover .mgnl-button__icon {
+  color: var(--mgnl-button-secondary-color-icon-hover);
+}
+.mgnl-button--secondary:disabled, .mgnl-button--secondary.is-disabled {
+  background-color: var(--mgnl-button-secondary-color-background-disabled);
+  border: var(--mgnl-button-secondary-border-disabled);
+  color: var(--mgnl-button-secondary-color-label-disabled);
+  cursor: not-allowed;
+}
+.mgnl-button--secondary:disabled .mgnl-button__icon, .mgnl-button--secondary.is-disabled .mgnl-button__icon {
+  color: var(--mgnl-button-secondary-color-icon-disabled);
+}
+.mgnl-button--secondary .mgnl-button__icon {
+  color: var(--mgnl-button-secondary-color-icon-default);
+}
+.mgnl-button--danger {
+  background-color: var(--mgnl-button-danger-color-background-default);
+  color: var(--mgnl-button-danger-color-label-default);
+  border: var(--mgnl-button-danger-border-default);
+  outline: var(--mgnl-focus-outline-none);
+}
+.mgnl-button--danger:active {
+  background-color: var(--mgnl-button-danger-color-background-active);
+  border: var(--mgnl-button-danger-border-active);
+  color: var(--mgnl-button-danger-color-label-active);
+}
+.mgnl-button--danger:active .mgnl-button__icon {
+  color: var(--mgnl-button-danger-color-icon-active);
+}
+.mgnl-button--danger:focus {
+  background-color: var(--mgnl-button-danger-color-background-focus);
+  border: var(--mgnl-button-danger-border-focus);
+  box-shadow: var(--mgnl-focus-outline-danger-default);
+  color: var(--mgnl-button-danger-color-label-focus);
+}
+.mgnl-button--danger:focus .mgnl-button__icon {
+  color: var(--mgnl-button-danger-color-icon-focus);
+}
+.mgnl-button--danger:hover {
+  background-color: var(--mgnl-button-danger-color-background-hover);
+  border: var(--mgnl-button-danger-border-hover);
+  color: var(--mgnl-button-danger-color-label-hover);
+}
+.mgnl-button--danger:hover .mgnl-button__icon {
+  color: var(--mgnl-button-danger-color-icon-hover);
+}
+.mgnl-button--danger:disabled, .mgnl-button--danger.is-disabled {
+  background-color: var(--mgnl-button-danger-color-background-disabled);
+  border: var(--mgnl-button-danger-border-disabled);
+  color: var(--mgnl-button-danger-color-label-disabled);
+  cursor: not-allowed;
+}
+.mgnl-button--danger:disabled .mgnl-button__icon, .mgnl-button--danger.is-disabled .mgnl-button__icon {
+  color: var(--mgnl-button-danger-color-icon-disabled);
+}
+.mgnl-button--danger .mgnl-button__icon {
+  color: var(--mgnl-button-danger-color-icon-default);
+}
+.mgnl-button--xs {
+  font: var(--mgnl-button-xs-typography);
+  border-radius: var(--mgnl-button-xs-border-radius-default);
+  gap: var(--mgnl-button-xs-gap);
+  padding: var(--mgnl-button-xs-padding);
+  transition: all var(--mgnl-button-xs-transition);
+}
+.mgnl-button--sm {
+  font: var(--mgnl-button-sm-typography);
+  border-radius: var(--mgnl-button-sm-border-radius-default);
+  gap: var(--mgnl-button-sm-gap);
+  padding: var(--mgnl-button-sm-padding);
+  transition: all var(--mgnl-button-sm-transition);
+}
+.mgnl-button--md {
+  font: var(--mgnl-button-md-typography);
+  border-radius: var(--mgnl-button-md-border-radius-default);
+  gap: var(--mgnl-button-md-gap);
+  padding: var(--mgnl-button-md-padding);
+  transition: all var(--mgnl-button-md-transition);
+}
+
+/*# sourceMappingURL=button.css.map */

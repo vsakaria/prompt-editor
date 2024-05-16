@@ -1,0 +1,217 @@
+@charset "UTF-8";
+.mgnl-input,
+.mgnl-form-field {
+	transition: all var(--mgnl-animation-duration-50)
+		var(--mgnl-animation-timing-50);
+	color: var(--mgnl-input-neutral-color-text-default);
+	font: var(--mgnl-typography-ui-default-md);
+	text-align: left;
+	background-color: var(--mgnl-input-neutral-color-background-default);
+	border: var(--mgnl-input-neutral-border-default);
+	display: inline-block;
+	min-width: 14rem;
+	outline: var(--mgnl-focus-outline-none);
+	position: relative;
+	border-radius: var(--mgnl-input-md-border-radius);
+	padding: var(--mgnl-form-control-md-padding-block)
+		var(--mgnl-form-control-md-padding-inline);
+	/* stylelint-disable */
+	/* stylelint-enable */
+}
+.mgnl-input:hover,
+.mgnl-form-field:hover {
+	background-color: var(--mgnl-input-neutral-color-background-hover);
+	border: var(--mgnl-input-neutral-border-hover);
+	color: var(--mgnl-input-neutral-color-text-hover);
+}
+.mgnl-input:focus,
+.mgnl-form-field:focus {
+	background-color: var(--mgnl-input-neutral-color-background-focus);
+	border: var(--mgnl-input-neutral-border-focus);
+	box-shadow: var(--mgnl-focus-outline-neutral-input);
+	color: var(--mgnl-input-neutral-color-text-focus);
+}
+.mgnl-input[aria-disabled],
+.mgnl-input:disabled,
+.mgnl-form-field[aria-disabled],
+.mgnl-form-field:disabled {
+	background-color: var(--mgnl-input-neutral-color-background-disabled);
+	border: var(--mgnl-input-neutral-border-disabled);
+	color: var(--mgnl-input-neutral-color-text-disabled);
+	cursor: not-allowed;
+	box-shadow: var(--mgnl-focus-outline-none);
+}
+.mgnl-input[aria-disabled]:hover,
+.mgnl-input:disabled:hover,
+.mgnl-form-field[aria-disabled]:hover,
+.mgnl-form-field:disabled:hover {
+	border: var(--mgnl-input-neutral-border-disabled);
+}
+.mgnl-input--md,
+.mgnl-form-field--md {
+	border-radius: var(--mgnl-input-md-border-radius);
+	padding: var(--mgnl-form-control-md-padding-block)
+		var(--mgnl-form-control-md-padding-inline);
+}
+.mgnl-input--sm,
+.mgnl-form-field--sm {
+	border-radius: var(--mgnl-input-sm-border-radius);
+	padding: var(--mgnl-form-control-sm-padding-block)
+		var(--mgnl-form-control-sm-padding-inline);
+}
+.mgnl-input--xs,
+.mgnl-form-field--xs {
+	border-radius: var(--mgnl-input-xs-border-radius);
+	padding: var(--mgnl-form-control-xs-padding-block)
+		var(--mgnl-form-control-xs-padding-inline);
+}
+.mgnl-input.is-invalid,
+.mgnl-input.is-dirty:invalid,
+.is-invalid .mgnl-input,
+.mgnl-form-field.is-invalid,
+.mgnl-form-field.is-dirty:invalid,
+.is-invalid .mgnl-form-field {
+	border: var(--mgnl-input-neutral-border-error);
+}
+.mgnl-input.is-invalid:focus,
+.mgnl-input.is-invalid:focus-within,
+.mgnl-input.is-dirty:invalid:focus,
+.mgnl-input.is-dirty:invalid:focus-within,
+.is-invalid .mgnl-input:focus,
+.is-invalid .mgnl-input:focus-within,
+.mgnl-form-field.is-invalid:focus,
+.mgnl-form-field.is-invalid:focus-within,
+.mgnl-form-field.is-dirty:invalid:focus,
+.mgnl-form-field.is-dirty:invalid:focus-within,
+.is-invalid .mgnl-form-field:focus,
+.is-invalid .mgnl-form-field:focus-within {
+	box-shadow: var(--mgnl-focus-outline-danger-input);
+}
+
+textarea.mgnl-input,
+textarea.mgnl-form-field {
+	resize: vertical;
+}
+
+.mgnl-input-group {
+	transition: all var(--mgnl-animation-duration-50)
+		var(--mgnl-animation-timing-50);
+	color: var(--mgnl-input-neutral-color-text-default);
+	font: var(--mgnl-typography-ui-default-md);
+	text-align: left;
+	align-items: center;
+	align-content: stretch;
+	background-color: var(--mgnl-input-neutral-color-background-default);
+	border-radius: var(--mgnl-input-md-border-radius);
+	border: var(--mgnl-input-neutral-border-default);
+	display: inline-flex;
+	justify-content: space-between;
+	overflow: hidden;
+}
+.mgnl-input-group:focus-within {
+	background-color: var(--mgnl-input-neutral-color-background-focus);
+	border: var(--mgnl-input-neutral-border-focus);
+	box-shadow: var(--mgnl-focus-outline-neutral-input);
+	color: var(--mgnl-input-neutral-color-text-focus);
+}
+.mgnl-input-group.is-invalid {
+	border: var(--mgnl-input-neutral-border-error);
+}
+.mgnl-input-group.is-invalid:focus,
+.mgnl-input-group.is-invalid:focus-within {
+	box-shadow: var(--mgnl-focus-outline-danger-input);
+}
+.mgnl-input-group .mgnl-input,
+.mgnl-input-group .mgnl-form-field {
+	border: 0;
+	border-radius: 0;
+	flex: 1;
+	outline: 0;
+}
+.mgnl-input-group .mgnl-input,
+.mgnl-input-group .mgnl-input.is-invalid,
+.is-invalid .mgnl-input-group .mgnl-input,
+.mgnl-input-group .mgnl-form-field,
+.mgnl-input-group .mgnl-form-field.is-invalid,
+.is-invalid .mgnl-input-group .mgnl-form-field {
+	box-shadow: none;
+}
+.mgnl-input-group .mgnl-button,
+.mgnl-input-group .mgnl-icon-button {
+	border-radius: 0;
+	box-shadow: none;
+	outline: 0;
+}
+.mgnl-input-group .mgnl-button:focus,
+.mgnl-input-group .mgnl-icon-button:focus {
+	box-shadow: none;
+	outline: 0;
+}
+.mgnl-input-group__addon {
+	align-self: stretch;
+	align-items: center;
+	display: flex;
+}
+.mgnl-input-group__addon--text {
+	line-height: 1;
+	padding: var(--mgnl-form-control-md-padding-block)
+		var(--mgnl-form-control-md-padding-inline);
+}
+
+button.mgnl-input-group {
+	appearance: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.mgnl-form-select {
+	background-color: var(--mgnl-input-neutral-color-background-default);
+	border: var(--mgnl-input-neutral-border-default);
+	border-radius: var(--mgnl-input-md-border-radius);
+	display: block;
+	min-width: 200px;
+	position: relative;
+	z-index: 1;
+}
+.mgnl-form-select::after {
+	background-color: var(--mgnl-surface-tint-low);
+	content: '▾';
+	color: #666;
+	font-size: 1.25rem;
+	height: 100%;
+	line-height: 1.66;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 0;
+	width: 2em;
+	z-index: -1;
+}
+.mgnl-form-select select {
+	appearance: none;
+	background: transparent;
+	border-radius: var(--mgnl-input-md-border-radius);
+	border: none;
+	cursor: pointer;
+	display: block;
+	font: var(--mgnl-typography-ui-default-md);
+	padding: 0.7em 3.5em 0.7em 0.85em;
+	width: 100%;
+}
+.mgnl-form-select select:focus {
+	border-color: var(--mgnl-color-emerald-50);
+	outline: var(--mgnl-dimension-2) solid var(--mgnl-color-emerald-50);
+}
+.mgnl-form-select select:hover {
+	border-color: var(--mgnl-color-gray-60);
+}
+.is-invalid .mgnl-form-select,
+.mgnl-form-select.is-invalid {
+	border: var(--mgnl-input-neutral-border-error);
+}
+.is-invalid .mgnl-form-select select:focus,
+.mgnl-form-select.is-invalid select:focus {
+	outline-color: var(--mgnl-border-color-danger-base-default);
+}
+
+/*# sourceMappingURL=input.css.map */
