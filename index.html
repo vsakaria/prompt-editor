@@ -41,21 +41,6 @@
 				render() {
 					return html`
 						<div>
-							<textarea
-								class="mgnl-input mgnl-input--md v-textarea v-widget hide-caption v-textarea-hide-caption v-has-width"
-								placeholder="Enter your prompt here."
-								id="textArea"
-								style="display: flex;"
-							></textarea>
-							<button
-								class="mgnl-button mgnl-button--primary mgnl-button--md"
-								@click="${this.handleOpenDialog}"
-							>
-								<span class="mgnl-button__text">
-									Open Dialog
-								</span>
-							</button>
-
 							${this.isOpen
 								? html`
 										<div class="dialog-container">
@@ -98,6 +83,28 @@
 														)}"
 												/>
 											</label>
+										</div>
+								  `
+								: ''}
+							<textarea
+								class="mgnl-input mgnl-input--md v-textarea v-widget hide-caption v-textarea-hide-caption v-has-width"
+								placeholder="Enter your prompt here."
+								id="textArea"
+								style="display: flex; height: 260px"
+							></textarea>
+							<div class="prompt-panel">
+								${!this.isOpen
+									? html`<button
+											class="mgnl-button mgnl-button--primary mgnl-button--md"
+											@click="${this.handleOpenDialog}"
+									  >
+											<span class="mgnl-button__text">
+												Inject
+											</span>
+									  </button>`
+									: ''}
+								${this.isOpen
+									? html`<div class="inject-buttons">
 											<button
 												class="mgnl-button mgnl-button--primary mgnl-button--md"
 												@click="${this.handleSubmit}"
@@ -115,10 +122,9 @@
 											>
 												Close
 											</button>
-										</div>
-								  `
-								: ''}
-							<h1>Test</h1>
+									  </div>`
+									: ''}
+							</div>
 						</div>
 					`;
 				}
